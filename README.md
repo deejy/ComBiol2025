@@ -1,4 +1,4 @@
-# Article MolBiol 2025
+# Article Communication Biology 2025
 ## Lipids modulate the organization of VDAC1, the gatekeeper of mitochondria
 V1 - preprint on [BioRXiv](https://www.biorxiv.org/content/10.1101/2024.06.26.597124v1)
 <img src="./Img/Bande-AFM2CG.jpg" alt="CG Image" >
