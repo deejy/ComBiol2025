@@ -54,6 +54,7 @@ V 0.97p (beta)
 - Puts methods in a custum library directory
 - Only for visualization and lipid/protein ration and partition analyses. Not direcly adapted to subsequent molecular simulations
 
-### catAFM2CG
 ### StatsOn-rdf
+
+
 ### clustOnAggreg
