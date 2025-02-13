@@ -1,8 +1,7 @@
 # Article MolBiol 2025
-## Lipids modulate the organization of VDAC1, the gatekeeper of mitochondria Mol. Biol 2025
+## Lipids modulate the organization of VDAC1, the gatekeeper of mitochondria
 
-<img src="./Img/Full87.jpg" alt="CG Image" width="200" height="200">
-
+<img src="./Img/Bande-AFM2CG.jpg" alt="CG Image" >
 V1 - preprint in [BioRXive](https://www.biorxiv.org/content/10.1101/2024.06.26.597124v1)
 
 VDACs, the most abundant proteins in the outer mitochondrial membrane (MOM), are crucial for mitochondrial physiology. VDAC regulate metabolite and ion exchange, modulate calcium homeostasis, and play roles in numerous cellular events such as apoptosis, mitochondrial DNA (mtDNA) release, and different diseases. Mitochondrial function is closely tied to VDAC oligomerization, influencing key processes like mtDNA release and apoptosis, but the molecular drivers of this oligomerization remain unclear. In this study, we investigate the effects of three major MOM lipids on VDAC assemblies using atomic force microscopy and molecular dynamics simulations. Our results show that phosphatidylethanolamine and cholesterol regulate VDAC assembly, with the formation of stable lipid-protein clusters of various size and compaction. Deviations from physiological lipid content disrupted native-like VDAC assemblies, highlighting the importance of lipid environment in VDAC organization. These findings underscore how lipid heterogeneity and changes in membranes influence VDAC function.
