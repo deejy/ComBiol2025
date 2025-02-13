@@ -25,16 +25,16 @@ V 0.97p (beta)
  
 ```
    #Arguments
-    parser.add_argument('-i', '--prefix', type=str, default='sys', help='Préfixe du nom des fichiers de coordonnées Ã  concaténer (défaut: "sys")')
-    parser.add_argument('-p', '--path', type=str, default='./CGGrofiles', help='Path to the input "gro" files (défaut: see code)')
-    parser.add_argument('-n', '--n_prot', type=int, default=5, help='Nombre de protéines a concatener (défaut: 5)')
-    parser.add_argument('-t', '--rand', action="store_true" , help='True = Generate a random orientation else use data in the input file')
+    parser.add_argument('-i', '--prefix', type=str, default='sys', help='Name Préfix of individaul CG files stored in the "path" directory (default: "sys")')
+    parser.add_argument('-p', '--path', type=str, default='./CGGrofiles', help='Path to the input "gro" files (défault: see code)')
+    parser.add_argument('-n', '--n_prot', type=int, default=5, help='Protein number to proceed (défault: 5)')
+    parser.add_argument('-t', '--rand', action="store_true" , help='True = Generate a random orientation instead of the rot provided in the coord.dat input file')
     parser.add_argument('-nm', '--nomin', action="store_false" , help='True = Search an optimumum rientation to minimize inter protein clashes')    
-    parser.add_argument('-r', '--ref', type=int, default=158, help='Atome reference (index) on the CG coordinate to define the reference face for orientation (0 deg) (défaut: 158 - E72)')
+    parser.add_argument('-r', '--ref', type=int, default=158, help='Reference atome (index) on the CG coordinate to define the reference face for orientation (0 deg) (défaut: 158 - E72)')
     parser.add_argument('-d', '--dist', type=float, default=3.3, help='Distance for clashes consideration (default = 3.3)')
-    parser.add_argument('-c', '--dcyl', type=float, default=50.0, help='Distance for cylinder radius to concerve lipids around each protéin (default = 50 A)')
-    parser.add_argument('-a', '--afmcoor', type=str, default='coord.dat',  help='nom du fichier de coordonnée et d\'orientation des proteines mappée sur le cliché AFM (défaut: coord.dat)')
-    parser.add_argument('-o', '--output', type=str, default='catCG2AFM.gro', help='Fichiers de coordonnées de sortie ("gro" ou "pdb", défaut: "catCG2AFM.gro")')
+    parser.add_argument('-c', '--dcyl', type=float, default=50.0, help='Distance for cylinder radius to concerve lipids around proteins (default = 50 A)')
+    parser.add_argument('-a', '--afmcoor', type=str, default='coord.dat',  help='AFM coordinate file use to map proteins in the AFM micrography (défaut: coord.dat)')
+    parser.add_argument('-o', '--output', type=str, default='catCG2AFM.gro', help='Coordinate output file ("gro" ar "pdb", default: "catCG2AFM.gro")')
 ```
 *Features*
 - Use python multi-threads provided by the "multiprocessing" library
@@ -45,6 +45,7 @@ V 0.97p (beta)
 *Bugs an todo things*
 - The hierachical clusterization procedure sometime behave poorly giving rise to unresolved situation vith no convergence
 - Allows small translations in the peeking error range to try to resolve additionnal claches
+- Puts methods in a custum library directory
 - Only for visualization and lipid/protein ration and partition analyses. Not direcly adapted to subsequent molecular simulations
 
 
