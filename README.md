@@ -1,6 +1,6 @@
 # Article MolBiol 2025
 ## Lipids modulate the organization of VDAC1, the gatekeeper of mitochondria
-V1 - preprint in [BioRXive](https://www.biorxiv.org/content/10.1101/2024.06.26.597124v1)
+V1 - preprint on [BioRXiv](https://www.biorxiv.org/content/10.1101/2024.06.26.597124v1)
 <img src="./Img/Bande-AFM2CG.jpg" alt="CG Image" >
 
 VDACs, the most abundant proteins in the outer mitochondrial membrane (MOM), are crucial for mitochondrial physiology. VDAC regulate metabolite and ion exchange, modulate calcium homeostasis, and play roles in numerous cellular events such as apoptosis, mitochondrial DNA (mtDNA) release, and different diseases. Mitochondrial function is closely tied to VDAC oligomerization, influencing key processes like mtDNA release and apoptosis, but the molecular drivers of this oligomerization remain unclear. In this study, we investigate the effects of three major MOM lipids on VDAC assemblies using atomic force microscopy and molecular dynamics simulations. Our results show that phosphatidylethanolamine and cholesterol regulate VDAC assembly, with the formation of stable lipid-protein clusters of various size and compaction. Deviations from physiological lipid content disrupted native-like VDAC assemblies, highlighting the importance of lipid environment in VDAC organization. These findings underscore how lipid heterogeneity and changes in membranes influence VDAC function.
@@ -13,7 +13,7 @@ VDACs, the most abundant proteins in the outer mitochondrial membrane (MOM), are
 ## Scripts ##
 
 ### catAFM2CG  : 
-a python script to graft CG (MArtini) molecular dynamics simulations coordinates on picked Atomic Forces Microscopy coordinates
+a python script to graft CG (Martini) molecular dynamics simulations coordinates on picked Atomic Forces Microscopy coordinates
 
 V 0.97p (beta)
 - The AFM coordinates are provide as a simple coord.dat, csv (blank or tab separated fields) containing x y z rot coordinate comming from AFM image peacking. Coordinates in &angst; rot is a relative orientation (deg) relative to a reference surface (see *infra*)
@@ -27,7 +27,7 @@ V 0.97p (beta)
     294.6	351.5	0.0	200
 ```
 - A dedicated directory, referencend to the "path" argument contains Coarse Grained MARTINI cordinates in a GRO frormat (Gromacs).
-- Other parameter defines in the argument parser :
+- Other parameters define in the argument parser :
  
 ```
    #Arguments
@@ -55,6 +55,45 @@ V 0.97p (beta)
 - Only for visualization and lipid/protein ration and partition analyses. Not direcly adapted to subsequent molecular simulations
 
 ### StatsOn-rdf
+V 0.7
+Analyzing a series of Radial Distribution Functions (RDFs) generated using a previously provided VMD script to extract statistics within aggregates. This analysis provides insights and graphical representations of the neighbor distributions of monomers. A key feature is the transformation of the RDF into population distributions, exploring the possibilities for grouping.
 
+- The RDF files are stored in the specified -p path and are expected to match the naming pattern "*.dat".
+- This path also contains a reference RDF file that stores the g(R) function computed for the entire aggregate.
+- Both files consist of two columns, separated by a blank field, with a unique identifier in the header of the second column
+  
+```
+Distance RDF_44
+1.0 0.0
+3.0 0.0
+5.0 0.0
+7.0 0.0
+9.0 0.0
+.../...
+35.0 0.0
+37.0 0.0
+39.0 0.0
+41.0 0.00021844605743717715
+43.0 0.0001986016427024372
+45.0 9.067165188554325e-5
+47.0 0.0
+```
+- Other parameters define in the argument parser : 
+```
+   #Arguments
+    parser = argparse.ArgumentParser(description='Analysis of g(R) files to characterize the heterogeneity within an oligomeric aggregate.')
+    parser.add_argument('-p', '--path', type=str, default='./RDF',
+                        help='Path to reach the individual RDF files')
+    parser.add_argument('-d', '--distrange', type=str, default='47-49 51-55 57-61 63-67 69-79 81-85',
+                        help='Distance ranges to group as a single bar (blank separated fields)')
+    parser.add_argument('-s', '--size', type=int, default=100,
+                        help='Number of patches to include in the statistical analysis')
+    parser.add_argument('-sd', '--seed', type=int, default=1970,
+                        help='Seed for the random selection of patches')
+    return parser.parse_args()
+```
+*Bugs an todo things*
+
+- The code asume that distance increment in rdf are 2 &:Angstroem;  
 
 ### clustOnAggreg
