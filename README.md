@@ -7,7 +7,15 @@ V1 - preprint in [BioRXive](https://www.biorxiv.org/content/10.1101/2024.06.26.5
 
 VDACs, the most abundant proteins in the outer mitochondrial membrane (MOM), are crucial for mitochondrial physiology. VDAC regulate metabolite and ion exchange, modulate calcium homeostasis, and play roles in numerous cellular events such as apoptosis, mitochondrial DNA (mtDNA) release, and different diseases. Mitochondrial function is closely tied to VDAC oligomerization, influencing key processes like mtDNA release and apoptosis, but the molecular drivers of this oligomerization remain unclear. In this study, we investigate the effects of three major MOM lipids on VDAC assemblies using atomic force microscopy and molecular dynamics simulations. Our results show that phosphatidylethanolamine and cholesterol regulate VDAC assembly, with the formation of stable lipid-protein clusters of various size and compaction. Deviations from physiological lipid content disrupted native-like VDAC assemblies, highlighting the importance of lipid environment in VDAC organization. These findings underscore how lipid heterogeneity and changes in membranes influence VDAC function.
 
-**AFM2CG**  : a python script to graft CG (MArtini) molecular dynamics simulations coordinates on picked Atomic Forces Microscopy coordinates
+**Scripts list**
+- [catAFM2CG](README.md###catAFM2CG) a python script to graft CG (MArtini) molecular dynamics simulations coordinates on picked Atomic Forces Microscopy coordinates
+- [StatsOn-rdf](README.md###StatsOn-rdf)
+- [clustOnAggreg](README.md###clustOnAggreg)
+
+## Scripts ##
+
+### catAFM2CG  : 
+a python script to graft CG (MArtini) molecular dynamics simulations coordinates on picked Atomic Forces Microscopy coordinates
 
 V 0.97p (beta)
 - The AFM coordinates are provide as a simple coord.dat, csv (blank or tab separated fields) containing x y z rot coordinate comming from AFM image peacking. Coordinates in &angst; rot is a relative orientation (deg) relative to a reference surface (see *infra*)
@@ -48,4 +56,6 @@ V 0.97p (beta)
 - Puts methods in a custum library directory
 - Only for visualization and lipid/protein ration and partition analyses. Not direcly adapted to subsequent molecular simulations
 
-
+### catAFM2CG
+### StatsOn-rdf
+### clustOnAggreg
