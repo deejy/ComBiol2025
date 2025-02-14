@@ -2,7 +2,6 @@
 ## Lipids modulate the organization of VDAC1, the gatekeeper of mitochondria
 V1 - preprint on [BioRXiv](https://www.biorxiv.org/content/10.1101/2024.06.26.597124v1)
 <img src="./Img/Bande-AFM2CG.jpg" alt="CG Image" >
-
 VDACs, the most abundant proteins in the outer mitochondrial membrane (MOM), are crucial for mitochondrial physiology. VDAC regulate metabolite and ion exchange, modulate calcium homeostasis, and play roles in numerous cellular events such as apoptosis, mitochondrial DNA (mtDNA) release, and different diseases. Mitochondrial function is closely tied to VDAC oligomerization, influencing key processes like mtDNA release and apoptosis, but the molecular drivers of this oligomerization remain unclear. In this study, we investigate the effects of three major MOM lipids on VDAC assemblies using atomic force microscopy and molecular dynamics simulations. Our results show that phosphatidylethanolamine and cholesterol regulate VDAC assembly, with the formation of stable lipid-protein clusters of various size and compaction. Deviations from physiological lipid content disrupted native-like VDAC assemblies, highlighting the importance of lipid environment in VDAC organization. These findings underscore how lipid heterogeneity and changes in membranes influence VDAC function.
 
 **Scripts list**
@@ -98,6 +97,7 @@ Distance RDF_44
 
 ### clustOnAggreg
 Clustering particles within agregates using the [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) algorithm.
+<img src="./Img/ClustOnAggreg.png" alt="Clusters" >
 
 V 2.2 
 - The AFM coordinates are provided in a simple 'coord.dat' default named file, which is a CSV format (with fields separated by either spaces or tabs) containing x and y values in the first two columns. The previously used coord file for building models from AFM data is acceptable...
