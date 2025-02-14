@@ -17,7 +17,7 @@ a python script to graft CG (Martini) molecular dynamics simulations coordinates
 
 V 0.97p (beta)
 - The AFM coordinates are provide as a simple coord.dat, csv (blank or tab separated fields) containing x y z rot coordinate comming from AFM image peacking. Coordinates in &angst; rot is a relative orientation (deg) relative to a reference surface (see *infra*)
-*Sample*
+*A coord.dat Sample*
 ```   192.2	343.7	0.0	100
     205.0	403.3	0.0	229
     225.5	476.0	0.0	258
@@ -92,8 +92,47 @@ Distance RDF_44
                         help='Seed for the random selection of patches')
     return parser.parse_args()
 ```
-*Bugs an todo things*
+*Bugs and todo things*
 
-- The code asume that distance increment in rdf are 2 &:Angstroem;  
+- The code asume that the distance increment in RDF is 2 Å  
 
 ### clustOnAggreg
+Clustering particles within agregates using the [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) algorithm.
+
+V 2.2 
+- The AFM coordinates are provided in a simple 'coord.dat' default named file, which is a CSV format (with fields separated by either spaces or tabs) containing x and y values in the first two columns. The previously used coord file for building models from AFM data is acceptable...
+- DBSCAN primarily comprises two arguments: the minimum number of points required to consider an aggregate (set to 2 in this case) and a distance parameter that defines when points are considered to be in contact, known as the eps value. This eps value should be close to the diameter of the protein.
+
+- Basic usage :
+
+  python ./clustOnAggregV2.2.py  -i  coordNochol.txt --eps 53 -w 53 -c
+
+
+- Other parameters define in the argument parser : 
+```
+   #Arguments
+    parser = argparse.ArgumentParser(description='Clustering of particle within agregates using the DBSCAN algorithm ')
+    parser.add_argument('--eps', type=float, default=DEFAULT_EPS, help='Maximum radius of particles to be considered in the neighborhood search.')
+    parser.add_argument('--min_samples', type=int, default=DEFAULT_MIN_SAMPLES, help='Minimum size for a cluster.')
+    parser.add_argument('-i', '--input_file', type=str, required=True, help='Path to the input file containing particle coordinates.')
+    parser.add_argument('-o', '--output_file', type=str, help='Path to the output file for cluster indices.')
+    parser.add_argument('-c', '--plot_clust', action='store_true', help='Whether to plot the cluster (False without switch).')
+    parser.add_argument('-d', '--plot_dist', action='store_true', help='Whether to plot the distribution of clustering (False without switch).')
+    parser.add_argument('-w', '--width', type=float, default=DEFAULT_DIAM, help='Protein width for ploting cluster (in A), eg. diameter')
+    parser.add_argument('--colbyclust', action='store_true', help='Each cluster is colored with distinct colors rather than being represented by size')
+    parser.add_argument('-s', '--seed', type=int, default=DEFAULT_SEED, help='Seed for color plot.')
+    parser.add_argument('--cpng', type=str, help='Path to save the cluster plot as an image file.')
+    parser.add_argument('--dpng', type=str, help='Path to save the distribution plot as an image file.')
+```
+*Features*
+
+- The separation of monomers from the aggregate is essential to the DBSCAN algorithm, which does not try to cluster all points and instead classifies all non-clustered points as noise.
+- An alternative color scheme is proposed: the default scheme colors aggregates based on their size, while the other scheme covers a range of hues, assigning a distinct color to each individual cluster.
+- With the second scheme, the seed value change the color distribution between clusters
+
+*Bugs, limits and todo things*
+
+- The point size representing the protein size (width) — diameter given in angstroms (Å) — is determined based on the plot scale and a reference size for the scatter points. A seemingly unusual consequence of this method is that the protein surface relative to the field remains proportionally accurate, even if the scale of the coordinates is incorrect or modified (for instance, converting the ccordinate from Å to nm). This behavior can be confusing, as the eps parameter for the DBSCAN algorithm depends on the true dimensions of the coordinate system.
+
+-The optimal value for the eps parameter corresponds to the upper values of the protein contact distance, as observed in the RDF function. This may be a consequence of the non-ideal cylindrical shape of the VDAC proteins used in the development.
+
