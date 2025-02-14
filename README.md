@@ -26,7 +26,8 @@ V 0.97p (beta)
     294.6	351.5	0.0	200
 ```
 - A dedicated directory, referencend to the "path" argument contains Coarse Grained MARTINI cordinates in a GRO frormat (Gromacs).
-- Other parameters define in the argument parser :
+  
+*Other parameters define in the argument parser*
  
 ```
    #Arguments
@@ -77,7 +78,7 @@ Distance RDF_44
 45.0 9.067165188554325e-5
 47.0 0.0
 ```
-- Other parameters define in the argument parser : 
+*Other parameters define in the argument parser*
 ```
    #Arguments
     parser = argparse.ArgumentParser(description='Analysis of g(R) files to characterize the heterogeneity within an oligomeric aggregate.')
@@ -103,12 +104,12 @@ V 2.2
 - The AFM coordinates are provided in a simple 'coord.dat' default named file, which is a CSV format (with fields separated by either spaces or tabs) containing x and y values in the first two columns. The previously used coord file for building models from AFM data is acceptable...
 - DBSCAN primarily comprises two arguments: the minimum number of points required to consider an aggregate (set to 2 in this case) and a distance parameter that defines when points are considered to be in contact, known as the eps value. This eps value should be close to the diameter of the protein.
 
-- Basic usage :
+*Basic usage*
 
   python ./clustOnAggregV2.2.py  -i  coordNochol.txt --eps 53 -w 53 -c
 
 
-- Other parameters define in the argument parser : 
+*Other parameters define in the argument parser* 
 ```
    #Arguments
     parser = argparse.ArgumentParser(description='Clustering of particle within agregates using the DBSCAN algorithm ')
