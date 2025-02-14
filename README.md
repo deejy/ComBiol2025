@@ -11,7 +11,7 @@ VDACs, the most abundant proteins in the outer mitochondrial membrane (MOM), are
 
 ## Scripts ##
 
-### catAFM2CG  : 
+### catCG2AFM  : 
 a python script to graft CG (Martini) molecular dynamics simulations coordinates on picked Atomic Forces Microscopy coordinates
 
 V 0.97p (beta)
@@ -78,6 +78,10 @@ Distance RDF_44
 45.0 9.067165188554325e-5
 47.0 0.0
 ```
+*Basic usage :*
+
+python StatsOn-rdf.v0.7.py -p "./RDF-CG-125" -s 50
+
 *Other parameters define in the argument parser*
 ```
    #Arguments
