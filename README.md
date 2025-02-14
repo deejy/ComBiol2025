@@ -134,5 +134,5 @@ V 2.2
 
 - The point size representing the protein size (width) — diameter given in angstroms (Å) — is determined based on the plot scale and a reference size for the scatter points. A seemingly unusual consequence of this method is that the protein surface relative to the field remains proportionally accurate, even if the scale of the coordinates is incorrect or modified (for instance, converting the ccordinate from Å to nm). This behavior can be confusing, as the eps parameter for the DBSCAN algorithm depends on the true dimensions of the coordinate system.
 
--The optimal value for the eps parameter corresponds to the upper values of the protein contact distance, as observed in the RDF function. This may be a consequence of the non-ideal cylindrical shape of the VDAC proteins used in the development.
+- The optimal value for the eps parameter corresponds to the upper values of the protein contact distance, as observed in the RDF function. This may be a consequence of the non-ideal cylindrical shape of the VDAC proteins used in the development.
 
