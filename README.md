@@ -44,7 +44,7 @@ V 0.97p (beta)
 ```
 *Features*
 - Use python multi-threads provided by the "multiprocessing" library
-- Try a hierachical clutering analysis to aptimize processor loads (bigs still present)
+- Try a hierachical clutering analysis to optimize processor loads (bugs still present)
 - Suppress lipid overlaps (either to proteins or to previously positionned lipids)
 - Perform a very basic protein-protein optimization procedure to limite clashes by protein rotation
 
